@@ -1,104 +1,27 @@
 # NBA Playoff Tracker
-
-Simple NBA Playoff Tracker using:
-
+NBA Playoff Tracker for this current playoffs using:
 - Backend: Python, FastAPI, psycopg2
-- Frontend: plain HTML, vanilla JavaScript, CSS
-- Database: PostgreSQL
+- Frontend: HTML,  JavaScript, CSS
 - External data: ESPN public API
+Had to take out the react and databases/with login. Last year I had fun with javascript so I thought it would be a good idea to try to also use react and build a project with it but it was getting a bit too complex especially when I tried with the database its something i'm going to have to try again in the future.
 
-No React, Axios, SQLAlchemy, auth, build tools, or `node_modules` are required.
-
-## Project Structure
-
-```text
-backend/
-  main.py
-  requirements.txt
-
-frontend/
-  index.html
-  game.html
-  app.js
-  game.js
-  style.css
-
-.env
-README.md
-```
-
-## Features
-
-- Scoreboard page with a date picker.
+Features/Services
+- Scoreboard page with a date selectore.
 - Game cards show teams, logos, records, scores, and game status.
-- Info button opens a box score page for that game.
-- Box score page shows player points, rebounds, assists, and FG%.
-- Favorite teams are saved in PostgreSQL.
-- Favorite teams can be removed with the `x` button.
+- Button that opens up a box score page for that game with player stats
+- Can save a favorite teams locally and can be removed 
 
-## PostgreSQL Setup
-
-Create the database:
-
-```sql
-CREATE DATABASE nba_playoff_tracker;
-```
-
-The backend creates this table automatically:
-
-```sql
-favorite_teams (
-  id SERIAL PRIMARY KEY,
-  team_id TEXT UNIQUE NOT NULL,
-  team_name TEXT NOT NULL
-)
-```
-
-Edit `.env` if your PostgreSQL password is not `postgres`:
-
-```text
-DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/nba_playoff_tracker
-```
-
-## Backend Setup
-
-```powershell
-cd "C:\Users\natna\OneDrive\CMSC 365 Work\proj319\backend"
+1. Start the backend
+Open a terminal and run:
+cd backend
 pip install -r requirements.txt
-python -m uvicorn main:app --reload
-```
-
-Backend runs at:
-
-```text
-http://localhost:8000
-```
-
-## Frontend Setup
-
-Open this file in your browser:
-
-```text
-frontend/index.html
-```
-
-If browser security blocks `fetch()`, serve the folder with Python:
-
-```powershell
-cd "C:\Users\natna\OneDrive\CMSC 365 Work\proj319\frontend"
-python -m http.server 5173
-```
-
-Then open:
-
-```text
-http://localhost:5173
-```
-
+uvicorn main:app --reload
+Backend runs at http://localhost:8000
+2. Start the frontend
+Open a second terminal and run:
+cd frontend
+python -m http.server 5500
+Then open your browser and go to http://localhost:5500/index.html
 ## API Routes
-
-- `GET /scoreboard?date=YYYY-MM-DD`
-- `GET /boxscore/{gameId}`
-- `GET /favorites`
-- `POST /favorites`
-- `DELETE /favorites/{team_id}`
+GET games from a date /scoreboard?date=YYYY-MM-DD G
+GET box score for Game/boxscore/{gameId}Get 

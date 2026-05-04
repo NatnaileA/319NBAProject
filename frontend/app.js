@@ -1,5 +1,5 @@
 const API_BASE = "http://localhost:8000";
-//fdsfdsfsdfs
+//HTML elements that need to be accessed 
 const dateInput = document.getElementById("game-date");
 const gamesContainer = document.getElementById("games");
 const favoritesContainer = document.getElementById("favorites");
@@ -13,13 +13,13 @@ function getFavorites() {
 function saveFavorites(favorites) {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
+//JSON fetching function 
 async function fetchJson(url, options) {
   const response = await fetch(url, options);
   if (!response.ok) throw new Error("Request failed");
   return response.json();
 }
-
+//Gets game data from specific date 
 async function loadGames() {
   const selectedDate = dateInput.value;
   message.textContent = "Loading games...";
@@ -33,7 +33,7 @@ async function loadGames() {
     message.textContent = "Could not load games. Make sure the backend is running.";
   }
 }
-
+//Card for a game on the main page 
 function gameCardHtml(game) {
   return `
     <article class="card">
@@ -49,10 +49,10 @@ function gameCardHtml(game) {
     </article>
   `;
 }
-
+//block for team
 function teamRowHtml(team) {
   const favorites = getFavorites();
-  const saved = favorites.some(f => f.team_id === team.id);
+  const saved = favorites.some(f => f.team_id === team.id);//check if already in
   const starClass = saved ? "star-button saved" : "star-button";
 
   return `
@@ -69,7 +69,7 @@ function teamRowHtml(team) {
     </div>
   `;
 }
-
+//add/remove fav's
 function toggleFavorite(teamId, teamName) {
   const favorites = getFavorites();
   const index = favorites.findIndex(f => f.team_id === teamId);

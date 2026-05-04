@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI(title="NBA Playoff Tracker")
-
+#allowing access from frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#function to get data from ESPN API 
+#Get function to get data from ESPN API 
 def espn_get(url, params=None):
     try:
         response = requests.get(url, params=params, timeout=15)
@@ -41,7 +41,7 @@ def shape_team(competitor):
         "record": records[0].get("summary") if records else "",
     }
 
-#this is to get data for the scoreboard
+#this is to get data for the scoreboard it returns the list of games
 @app.get("/scoreboard")
 def get_scoreboard(date: str):
     espn_date = date.replace("-", "")

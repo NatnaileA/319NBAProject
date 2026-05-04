@@ -16,7 +16,7 @@ function getGameId() {
   const params = new URLSearchParams(window.location.search);
   return params.get("gameId");
 }
-
+//Loads box score data 
 async function loadBoxScore() {
   const gameId = getGameId();
   if (!gameId) {
@@ -33,13 +33,13 @@ async function loadBoxScore() {
     message.textContent = "Could not load box score. Make sure the backend is running.";
   }
 }
-
+//Table for team player stats
 function teamTableHtml(team) {
   return `
     <section class="boxscore-card">
       <div class="team-title">
-        ${team.logo ? `<img src="${team.logo}" alt="" />` : ""}
-        <h2>${team.name || "Team"}</h2>
+       ${team.logo ? `<img src="${team.logo}" alt="" />` : ""}
+     <h2>${team.name || "Team"}</h2>
       </div>
       <table>
         <thead>
@@ -48,7 +48,7 @@ function teamTableHtml(team) {
             <th>PTS</th>
             <th>REB</th>
             <th>AST</th>
-            <th>FG%</th>
+         <th>FG%</th>
           </tr>
         </thead>
         <tbody>
