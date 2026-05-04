@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NBA Playoff Tracker</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header class="topbar">
+      <a class="brand" href="index.html">NBA Playoff Tracker</a>
+    </header>
+
+    <main class="page">
+      <section class="page-header">
+        <div>
+          <h1>Scoreboard</h1>
+          <p>Pick a date to see NBA playoff games from ESPN.</p>
+        </div>
+        <input id="game-date" type="date" />
+      </section>
+
+      <section class="layout">
+        <div>
+          <p id="message" class="message">Loading games...</p>
+          <div id="games" class="game-grid"></div>
+        </div>
+
+        <aside class="favorites-panel">
+          <h2>Favorite Teams</h2>
+          <div id="favorites"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
   </body>
 </html>

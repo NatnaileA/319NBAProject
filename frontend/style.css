@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #09090b;
+  color: #f4f4f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+  border-bottom: 1px solid #27272a;
+  padding: 16px 24px;
+}
+
+.brand,
+.back-link {
+  color: #f4f4f5;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link {
+  color: #fdba74;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 24px;
+}
+
+.page-header {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+p,
+.message,
+.empty {
+  color: #a1a1aa;
+}
+
+input,
+button,
+.info-button {
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+}
+
+input {
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  color: #f4f4f5;
+  padding: 10px 12px;
+}
+
+.layout {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 320px;
+}
+
+.game-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card,
+.favorites-panel,
+.boxscore-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.card-header,
+.team-row,
+.team-left,
+.team-title {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.card-header,
+.team-row {
+  justify-content: space-between;
+}
+
+.card-header {
+  margin-bottom: 16px;
+}
+
+.team-row {
+  margin-top: 12px;
+}
+
+.team-left {
+  min-width: 0;
+}
+
+.team-left img,
+.team-title img {
+  height: 34px;
+  object-fit: contain;
+  width: 34px;
+}
+
+.team-left strong {
+  display: block;
+}
+
+.team-left p,
+.card-header p {
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+.score {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.star-button,
+.trash-button,
+.info-button {
+  align-items: center;
+  background: #27272a;
+  color: #f4f4f5;
+  cursor: pointer;
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  text-decoration: none;
+  width: 34px;
+}
+
+.star-button.saved {
+  background: #facc15;
+  color: #18181b;
+}
+
+.info-button {
+  background: #f97316;
+  color: #18181b;
+  font-weight: 800;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #27272a;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  color: #a1a1aa;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.boxscore-card {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+@media (max-width: 800px) {
+  .layout,
+  .page-header {
+    display: block;
+  }
+
+  .favorites-panel {
+    margin-top: 24px;
+  }
+
+  input {
+    width: 100%;
+  }
+}
