@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+#function to get data from ESPN API 
 def espn_get(url, params=None):
     try:
         response = requests.get(url, params=params, timeout=15)
@@ -21,14 +21,14 @@ def espn_get(url, params=None):
     except requests.RequestException as error:
         raise HTTPException(status_code=502, detail=f"ESPN request failed: {error}") from error
 
-
+#figure out if away vs home
 def find_competitor(competitors, home_away):
     for competitor in competitors:
         if competitor.get("homeAway") == home_away:
             return competitor
     return {}
 
-
+#format for the data we to the frontend
 def shape_team(competitor):
     team = competitor.get("team", {})
     records = competitor.get("records", [])
@@ -41,7 +41,7 @@ def shape_team(competitor):
         "record": records[0].get("summary") if records else "",
     }
 
-
+#this is to get data for the scoreboard
 @app.get("/scoreboard")
 def get_scoreboard(date: str):
     espn_date = date.replace("-", "")
@@ -68,7 +68,7 @@ def get_scoreboard(date: str):
 
     return games
 
-
+#boxscore data for a game
 @app.get("/boxscore/{game_id}")
 def get_boxscore(game_id: str):
     data = espn_get(

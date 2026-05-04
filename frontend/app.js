@@ -1,11 +1,11 @@
 const API_BASE = "http://localhost:8000";
-
+//fdsfdsfsdfs
 const dateInput = document.getElementById("game-date");
 const gamesContainer = document.getElementById("games");
 const favoritesContainer = document.getElementById("favorites");
 const message = document.getElementById("message");
 
-// localStorage favorites instead of database
+// Got rid of the database but can still keep favorites locally
 function getFavorites() {
   return JSON.parse(localStorage.getItem("favorites") || "[]");
 }
