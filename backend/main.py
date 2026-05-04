@@ -41,7 +41,7 @@ def shape_team(competitor):
         "record": records[0].get("summary") if records else "",
     }
 
-#this is to get data for the scoreboard it returns the list of games
+#function to get data for the scoreboard it returns the list of games
 @app.get("/scoreboard")
 def get_scoreboard(date: str):
     espn_date = date.replace("-", "")
