@@ -22,5 +22,5 @@ cd frontend
 python -m http.server 5500
 Then open your browser and go to http://localhost:5500
 ## API Routes
-GET games from a date /scoreboard?date=YYYY-MM-DD G
-GET box score for Game/boxscore/{gameId}Get 
+GET games from a date 
+GET box score for Game
